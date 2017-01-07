@@ -1,0 +1,1 @@
+{"version":3,"sources":["register.scss"],"names":[],"mappings":"AAAA;EACE,0BAAyB;CAC1B;;AAED;EACE,eAAc;CACf","file":"../../../style.css","sourcesContent":["body {\n  background-color: #ecf0f1;\n}\n\n.buttons {\n  padding: 0 8em;\n}\n"]}

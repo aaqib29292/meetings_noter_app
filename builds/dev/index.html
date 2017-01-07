@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Angular Meetings Noter</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,100,700,900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+
+
+    <header>
+
+    </header>
+
+    <div class="userinfo text-center" ng-show="currentUser" ng-controller="RegistrationController">
+        <span class="userinfo">Hi {{ currentUser.firstname }} {{ currentUser.lastname }}</span>
+        <a ng-href="#/login" ng-click="logout()">logout</a>
+    </div>
+
+    <main class="container" ng-view>
+
+    </main>
+
+
+                                  <!--script file-->
+
+    <!--vendor scripts-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="js/lib/angular/angular.min.js" charset="utf-8"></script>
+    <script src="js/lib/angular/angular-route.min.js" charset="utf-8"></script>
+    <script src="js/lib/angular/angular-animate.min.js" charset="utf-8"></script>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyD1Np78G7pYtIeHQg-HIbcJPTKPvRvZNwU",
+      authDomain: "angularmeetingsapp.firebaseapp.com",
+      databaseURL: "https://angularmeetingsapp.firebaseio.com",
+      storageBucket: "angularmeetingsapp.appspot.com",
+      messagingSenderId: "326366336671"
+    };
+    firebase.initializeApp(config);
+    </script>
+
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/2.1.0/angularfire.min.js"></script>
+    <!--user scripts-->
+    <script src="js/app.js" charset="utf-8"></script>
+    <script src="js/services/authentication.js" charset="utf-8"></script>
+    <script src="js/controllers/registration.js" charset="utf-8"></script>
+    <script src="js/controllers/meetings.js" charset="utf-8"></script>
+
+  </body>
+</html>
