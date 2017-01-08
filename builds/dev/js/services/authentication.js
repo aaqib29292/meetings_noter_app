@@ -9,7 +9,6 @@ myApp.factory('Authentication', ['$rootScope', '$location', "$firebaseObject", '
       var userRef = ref.child('users').child(authUser.uid);
       var userObj = $firebaseObject(userRef);
       $rootScope.currentUser = userObj;
-      console.log($rootScope.currentUser.firstname);
     } else {
       $rootScope.currentUser = '';
     }

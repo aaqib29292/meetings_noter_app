@@ -19,5 +19,6 @@
     "gulp-sourcemaps": "^1.9.1",
     "gulp-util": "^3.0.8",
     "gulp-webserver": "^0.9.1"
-  }
+  },
+  "dependencies": {}
 }

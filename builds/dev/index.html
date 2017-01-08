@@ -15,8 +15,8 @@
     </header>
 
     <div class="userinfo text-center" ng-show="currentUser" ng-controller="RegistrationController">
-        <span class="userinfo">Hi {{ currentUser.firstname }} {{ currentUser.lastname }}</span>
-        <a ng-href="#/login" ng-click="logout()">logout</a>
+        <h1><span class="userinfo">Hi {{ currentUser.firstname | uppercase }} {{ currentUser.lastname | uppercase}},</span>
+        <a class="btn btn-danger" ng-href="#/login" ng-click="logout()">logout</a></h1>
     </div>
 
     <main class="container" ng-view>

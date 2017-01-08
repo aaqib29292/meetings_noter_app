@@ -29,6 +29,10 @@ myApp.config(['$routeProvider', function ($routeProvider) {
         }
       }
     }).
+    when('/meetinginfo/:uId/:mId', {
+      templateUrl: 'views/checkins.html',
+      controller: 'CheckInsController'
+    }).
     otherwise({
       redirectTo: '/login'
     });
