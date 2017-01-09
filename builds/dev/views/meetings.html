@@ -7,25 +7,28 @@
         <label for="meetingname" class="col-sm-4 control-label">Meeting Name</label>
         <div class="col-sm-8">
           <input type="text" name="meetingname" class="form-control" placeholder="Meeting name" ng-model="meetingname" ng-required="true">
+          <p class="error validationerror" ng-show="myform.meetingname.$invalid && myform.meetingname.$touched">Meeting name required</p>
         </div>
       </div>
       <div class="form-group">
         <label for="meetingpurpose" class="col-sm-4 control-label">Meeting Purpose</label>
         <div class="col-sm-8">
           <input type="textarea" name="meetingpurpose" class="form-control" placeholder="Meeting Purpose" ng-model="meetingpurpose" ng-required="true">
+          <p class="error validationerror" ng-show="myform.meetingpurpose.$invalid && myform.meetingpurpose.$touched">Meeting purpose required</p>
         </div>
       </div>
       <div class="form-group">
-        <label for="meetingdatetime" class="col-sm-4 control-label">Meeting Date</label>
+        <label for="meetingdatetime" class="col-sm-4 control-label">Meeting Date & Time (24hr timing)</label>
         <div class="col-sm-8">
           <input type="datetime-local" name="meetingdatetime" class="form-control" ng-model="meetingdatetime" ng-required="true">
-          {{meetingdatetime}}
+          <p class="error validationerror" ng-show="myform.meetingdatetime.$invalid && myform.meetingdatetime.$touched">Meeting date and time required</p>
         </div>
       </div>
       <div class="form-group">
         <label for="meetingplace" class="col-sm-4 control-label">Meeting Place</label>
         <div class="col-sm-8">
-          <input type="text" name="meetingplace" class="form-control" ng-model="meetingplace" ng-required="true">
+          <input type="text" name="meetingplace" class="form-control" placeholder="Meeting Purpose" ng-model="meetingplace" ng-required="true">
+          <p class="error validationerror" ng-show="myform.meetingplace.$invalid && myform.meetingplace.$touched">Meeting place required</p>
         </div>
       </div>
       <button type="submit" class="btn btn-success" ng-disabled="myform.$invalid">Add Meeting</button>
@@ -36,7 +39,7 @@
 
 <div class="meetings-list row well well-lg" ng-show="howManyMeetings">
   <div class="col-sm-offset-2 col-sm-8"></div>
-  <h2 class="text-center">Your Meetings List <span class="label label-primary">{{howManyMeetings}}</span></h2>
+  <h2 class="text-center">Your Meetings List</h2>
   <div class="table-responsive">
     <table class="table">
       <thead>
@@ -56,7 +59,10 @@
           <td>{{meeting.purpose}}</td>
           <td>{{meeting.datetime | date:'medium'}}</td>
           <td>{{meeting.place}}</td>
-          <td><a class="btn btn-danger" ng-click="deleteMeeting(key)"><span class="glyphicon glyphicon-trash"></span></a></td>
+          <td>
+            <a class="btn btn-info glyphicon glyphicon-user" ng-href="#/checkins/{{currentUser.regUser}}/{{meeting.$id}}"></a>
+            <a class="btn btn-danger glyphicon glyphicon-trash" ng-click="deleteMeeting(key)"></a>
+          </td>
         </tr>
       </tbody>
     </table>

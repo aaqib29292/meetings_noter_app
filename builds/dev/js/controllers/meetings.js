@@ -33,6 +33,7 @@ myApp.controller('MeetingsController',
           }).then(function() {
             console.log($scope.meetingdatetime);
             $scope.meetingname= $scope.meetingpurpose = $scope.meetingdatetime = $scope.meetingplace = '';
+            $scope.myform.$setUntouched();
           });
         }
 
