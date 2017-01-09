@@ -9,13 +9,15 @@ myApp.factory('Authentication', ['$rootScope', '$location', "$firebaseObject", '
       var userRef = ref.child('users').child(authUser.uid);
       var userObj = $firebaseObject(userRef);
       $rootScope.currentUser = userObj;
+      if (userObj) {
+        $location.path('/meetings');
+      }
     } else {
       $rootScope.currentUser = '';
     }
   });
 
   var myObject =  {
-
 
     login : function(user) {
       auth.$signInWithEmailAndPassword(
