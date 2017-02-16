@@ -1,0 +1,103 @@
+
+<div class="checkin-form row text-center well well-lg">
+  <div class=" col-sm-offset-3 col-sm-6">
+    <form name="myform" class="form-horizontal"
+    ng-submit="addCheckin()"
+    novalidate>
+
+      <div class="textintro">
+        <h1>Check-in</h1>
+        <p>Fill out this form to check-in to this meeting</p>
+        <p class="message" ng-show="message">{{ message }}</p>
+      </div>
+
+      <fieldset>
+
+        <div class="form-group">
+          <label class="col-sm-4 control-label" for="firstname">First Name</label>
+          <div class="col-sm-8">
+            <input type="text" name="firstname" class="form-control" placeholder="First Name" ng-model="user.firstname" ng-required="true">
+            <p class="error validationerror" ng-show="myform.firstname.$invalid && myform.firstname.$touched">First name required</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-4 control-label" for="lastname">Last Name</label>
+          <div class="col-sm-8">
+            <input type="text" name="lastname" class="form-control" placeholder="Last Name" ng-model="user.lastname" ng-required="true">
+            <p class="error validationerror" ng-show="myform.lastname.$invalid && myform.lastname.$touched">Last name required</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-4 control-label" for="email">Email address</label>
+          <div class="col-sm-8">
+            <input type="email" name="email" class="form-control" placeholder="Email" ng-model="user.email" ng-required="true">
+            <p class="error validationerror" ng-show="myform.email.$invalid && myform.email.$touched">Must be a valid email</p>
+          </div>
+        </div>
+      </fieldset>
+
+      <button type="submit" class="btn btn-success"
+      ng-disabled="myform.$invalid">Check-in</button>
+      <a ng-href="#/meetings" class="btn btn-danger pull-right"
+      >Back</a>
+
+    </form>
+  </div>
+</div>
+
+<div ng-show='checkinsLength' class="checkinslist row text-center">
+  <div class="col-sm-offset-2 col-sm-8">
+    <h1>Check-ins</h1>
+    <p>Here's a list of all your latest check-ins</p>
+
+    <div class="search-input">
+      <h2>Search Checkins</h2>
+
+
+      <div class="formgroup">
+        <input type="text" class="form-control input-lg text-center" placeholder="Search for users" ng-model="query"><br>
+        <span class="">Sort by </span>
+        <div class="row">
+          <div class=" col-sm-offset-4 col-sm-4">
+            <select class="form-control" ng-model="order">
+              <option value="firstname">First Name</option>
+              <option value="lastname">Last Name</option>
+              <option value="date">Date</option>
+            </select>
+          </div>
+
+        </div>
+      </div>
+      <br>
+      <div class="formgroup">
+        <div class="radio-inline">
+          <label>
+            <input type="radio" name="direction" ng-model="direction" checked>
+            asc
+          </label>
+        </div>
+        <div class="radio-inline">
+          <label>
+            <input type="radio" name="direction" ng-model="direction" value="reverse" checked>
+            desc
+          </label>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-sm-4 user" ng-repeat="checkin in checkins | orderBy: order:direction | filter: query">
+      <div class="btn-group">
+        <button type="button" class="btn btn-lg btn-primary">{{checkin.firstname}} {{checkin.lastname}}</button>
+        <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="caret"></span>
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="btn btn-danger" ng-click="deleteCheckin(checkin.$id)">Delete User</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>

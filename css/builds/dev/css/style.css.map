@@ -1,0 +1,1 @@
+{"version":3,"sources":["register.scss","checkins.scss"],"names":[],"mappings":"AAAA;EACE,0BAAyB;CAC1B;;AAED;EACE,eAAc;CACf;;ACND;EACE,cAAa;CACd","file":"../../../style.css","sourcesContent":["body {\n  background-color: #ecf0f1;\n}\n\n.buttons {\n  padding: 0 8em;\n}\n",".user {\n  margin: 1em 0;\n}\n"]}
